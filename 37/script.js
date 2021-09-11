@@ -21,7 +21,7 @@ const main_types = Object.keys(colors)
 
 const fetchPokemons = async () => {
     for(let i = 1; i <= pokemon_count; i++) {
-        await getPokemon(1)
+        await getPokemon(i)
     }
 }
 
@@ -46,20 +46,18 @@ const createPokemonCard = (pokemon) => {
     pokemonEl.style.backgroundColor = color
 
     const pokemonInnerHTML = `
-    <div class="pokemon" style="background-color: rgb(222, 253, 224);">
-		<div class="img-container">
-			<img src="raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png"" alt="${name}"" alt="">
-			</div>
-		<div class="info">
-			<span class="number">#${id}</span>
-			<h3 class="name">${name}</h3>
-			<small class="type">Type: <span>${type}</span> </small>
-		</div>
-	</div>
-    `
+		    <div class="img-container">
+            </div>
+		    <div class="info">
+            <span class="number">#${id}</span>
+            <h3 class="name">${name}</h3>
+            <small class="type">Type: <span>${type}</span> </small>
+		    </div>
+        `
 
     pokemonEl.innerHTML = pokemonInnerHTML
     poke_container.appendChild(pokemonEl)
 }
 
 fetchPokemons()
+        // <img src="raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png"" alt="${name}"" alt="">
